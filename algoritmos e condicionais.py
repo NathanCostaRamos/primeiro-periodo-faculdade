@@ -62,17 +62,17 @@ numero1 = int(input("coloque um número: "))
 numero2 = int(input("coloque um número: "))
 numero3 = int(input("coloque um número: "))
 
-if (numero1 > numero2 > numero3):
+if (numero1 < numero2 < numero3):
    print("A ordem crescente dos números são: ", numero1, numero2, numero3)
-elif (numero1 > numero3 > numero2):
+elif (numero1 < numero3 < numero2):
    print("A ordem crescente dos números são: ", numero1, numero3, numero2)
-elif (numero2 > numero1 > numero3):
+elif (numero2 < numero1 < numero3):
    print("A ordem crescente dos números são: ", numero2, numero1, numero3)
-elif (numero2 > numero3 > numero1):
+elif (numero2 < numero3 < numero1):
    print("A ordem crescente dos números são: ", numero2, numero3, numero1)
-elif (numero3 > numero1 > numero2):
+elif (numero3 < numero1 < numero2):
    print("A ordem crescente dos números são: ", numero3, numero1, numero2)
-elif (numero3 > numero2 > numero1):
+elif (numero3 < numero2 < numero1):
    print("A ordem crescente dos números são: ", numero3, numero2, numero1)
 else:
    print("Seus números são iguais.")
@@ -88,19 +88,19 @@ salarioMinimo= 1.320
 salarioFuncionario= int(input("Digite seu salário atual "))
 
 if (salarioFuncionario < (salarioMinimo*3)):
-   SalarioNovo = salarioFuncionario + (salarioFuncionario*0.5)
+   SalarioNovo = salarioFuncionario and(salarioFuncionario*0.5)
    reajuste ="50%"
    aumento = SalarioNovo - salarioFuncionario
 elif((salarioFuncionario > (salarioMinimo*3)) or (salarioFuncionario <= (salarioMinimo*10))):
-   SalarioNovo = salarioFuncionario + (salarioFuncionario*0.2)
+   SalarioNovo = salarioFuncionario and (salarioFuncionario*0.2)
    reajuste = "20%"
    aumento = SalarioNovo - salarioFuncionario
 elif((salarioFuncionario > (salarioMinimo*3)) or (salarioFuncionario <= (salarioMinimo*10))):
-   SalarioNovo = salarioFuncionario + (salarioFuncionario*0.15)
+   SalarioNovo = salarioFuncionario and (salarioFuncionario*0.15)
    reajuste = "15%"
    aumento = SalarioNovo - salarioFuncionario
 else:
-   SalarioNovo = salarioFuncionario + (salarioFuncionario*0.1)
+   SalarioNovo = salarioFuncionario and (salarioFuncionario*0.1)
    reajuste = "10%"
    aumento = SalarioNovo - salarioFuncionario
    
@@ -141,3 +141,77 @@ if ((nume >= 100) or (nume <= 200)):
    print("Seu número está dentro do intervalo aceito")
 else:
    print("Seu número não está dentro do intervalo aceito")
+
+#k) O Botafogo Futebol Clube deseja aumentar o salário de seus jogadores. O reajuste deve obedecer a seguinte tabela: 
+# SALÁRIO ATUAL (R$) AUMENTO
+#0,00 a 5.000,00 20%
+#5.000,01 a 15.000,00 10%
+#acima de 15.000,00 0%
+#Escrever um algoritmo que leia o nome e o salário atual de um jogador, e exiba o nome, o salário atual e o salário reajustado.
+nome = str(input("Digite seu nome: "))
+salarioAtual = float(input("Digite seu salario atual: "))
+
+if (salarioFuncionario <= 5000):
+   SalarioFinal = salarioAtual + (salarioAtual*0.5)
+   reajuste ="20%"
+   aumento = SalarioFinal - salarioAtual
+   print("olá", nome, "seu salario atual de R$ ", salarioAtual, "levou um reajuste de ", reajuste, "totalizando R$", salarioFinal)
+elif((salarioAtual >= 5000.01) or (salarioAtual <= 15000)):
+   SalarioFinal = salarioAtual + (salarioAtual * 0.1)
+   reajuste = "10%"
+   aumento = SalarioFinal - salarioAtual
+   print("olá", nome, "seu salario atual de R$ ", salarioAtual, "levou um reajuste de ", reajuste, "totalizando R$", salarioFinal)
+else:
+  print("Olá", nome, "seu salario não levou reajuste")
+
+#l) Faça um algoritmo para calcular a conta final de um hóspede de um hotel fictício, considerando que:
+#• Serão lidos o nome do hóspede, o tipo do apartamento utilizado (A, B, C ou D), o número de diárias utilizadas pelo hóspede e o valor do consumo interno do hóspede;
+#• O valor da diária é determinado pela seguinte tabela:
+#1. TIPO DO APTO.
+#2. VALOR DA DIÁRIA (R$)
+#3. A 4. 150,00
+#5. B 6. 100,00
+#7. C 8. 75,00
+#9. D 10. 50,00
+#• O valor total das diárias é calculado pela multiplicação do número de diárias utilizadas pelo valor da diária;
+#• O subtotal é calculado pela soma do valor total das diárias e o valor do consumo interno;
+#• O valor da taxa de serviço equivale a 10% do subtotal;
+#• A total geral resulta da soma do subtotal com a taxa de serviço.
+#• Escreva a conta final contendo: o nome do hóspede, o tipo do apartamento, o número de diárias utilizadas, o valor unitário da diária, o valor total das diárias, o valor do consumo interno, o subtotal, o valor da taxa de serviço e o total geral.
+
+hospede = str(input("Digite seu nome: "))
+tipoAp = str(input("Qual tipo de Ap. o hóspede ficou(A, B, C, D)? "))
+dias = int(input("Quantos dias o hóspede ficou no ap.: "))
+valorConsumo = float(input("qual o valor do consumo do hóspede? "))
+
+if tipoAp == "A":
+   valorAp= 150
+   ValorDiarias = dias * valorAp
+   subtotal = ValorDiarias + valorConsumo
+   valorTS = subtotal * 0.1
+   total = subtotal + valorTS
+
+elif tipoAp == "B":
+   valorAp= 100
+   ValorDiarias = dias * valorAp
+   subtotal = ValorDiarias + valorConsumo
+   valorTS = subtotal * 0.1
+   total = subtotal + valorTS
+
+elif tipoAp == "C":
+   valorAp= 75
+   ValorDiarias = dias * valorAp
+   subtotal = ValorDiarias + valorConsumo
+   valorTS = subtotal * 0.1
+   total = subtotal + valorTS
+
+elif tipoAp == "D":
+   valorAp= 50
+   ValorDiarias = dias * valorAp
+   subtotal = ValorDiarias + valorConsumo
+   valorTS = subtotal * 0.1
+   total = subtotal + valorTS
+
+else:
+   print()
+print("Olá ", hospede," vc se hospedou no tipo de ap. ", tipoAp, "e ficou por", dias,"cada dia tendo o valor de R$: ", ValorDiarias, "seu consumo interno na hospedaria finalizou em R$", valorConsumo, "somando as suas diárias fica R$", subtotal, "mais a nossa taxa de serviço de 10% ou R$ ", valorTS, " finalizando um total de: ", total)
